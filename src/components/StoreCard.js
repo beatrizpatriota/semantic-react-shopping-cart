@@ -17,7 +17,7 @@ const StoreCard = ({store}) => {
             <h3 className="text-left">{store.label}</h3>
             <div className="text-right">
 
-                    <a href={link} target="_blank">Ir para site</a>
+                    <a href={link} target="_blank" rel="noopener noreferrer">Ir para site</a>
             
             </div>
         </div>
