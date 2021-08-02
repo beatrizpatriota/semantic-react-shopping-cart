@@ -19,19 +19,19 @@ const CartRecommended = () => {
                 let storeContent = stores.find(st => st.label.toLowerCase() === product.foundIn.slice(75))
                 return content.push({data: product, store: storeContent})
             })
-        setRecommendedProds(content)
+        if(recommendedProds && recommendedProds !== undefined) setRecommendedProds(content)
       }
     runAsync()
-    }, [email]);
+    }, [email, recommendedProds]);
 
     return (
         <div className={styles.p__container}>
             <div className={styles.p__grid}>
 
-                {recommendedProds.length > 0 && 
+                {(recommendedProds && recommendedProds !== undefined) ? 
                 recommendedProds.map(product => (
                     <ProductItem key={product.data.label} product={product} />
-                ))
+                )) : <p>Não há produtos recomendados ainda :(</p>
                 }
 
             </div>
