@@ -28,7 +28,7 @@ const CartRecommended = () => {
         <div className={styles.p__container}>
             <div className={styles.p__grid}>
 
-                {recommendedProds && 
+                {recommendedProds.length > 0 && 
                 recommendedProds.map(product => (
                     <ProductItem key={product.data.label} product={product} />
                 ))
