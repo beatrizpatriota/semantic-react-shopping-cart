@@ -5,14 +5,16 @@ export default function MapArea() {
     const [infoStore, setInfoStore] = useState({})
 
     useEffect(() => {
-        fetch(
-            `http://localhost:8080/store/map?locationUri=${encodeURIComponent(store)}`,
+        const runAsync = async () => {
+        await fetch(`http://localhost:8080/store/map?locationUri=${encodeURIComponent(store)}`,
             { method: "GET" })
             .then(res => res.json())
             .then(response => {
                 setInfoStore(response)
             })
             .catch(error => console.log(error))
+        }
+    if(store) runAsync()
     }, [store])
 
     return (
