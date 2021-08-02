@@ -22,7 +22,7 @@ export default function MapArea() {
 
                     <map name="image-map">
                         <area alt="Riachuelo" title="Riachuelo"
-                            onClick={() => setStore('http://www.semanticweb.org/eachusp/ontologies/2021/5/ep-wsemantica#/stores/americanas/location')}
+                            onClick={() => setStore('http://www.semanticweb.org/eachusp/ontologies/2021/5/ep-wsemantica#/stores/riachuelo/location')}
                             coords="325,101,390,101,391,26,284,27,284,106,315,107" shape="poly" />
                         <area alt="RiHappy" title="RiHappy"
                             onClick={() => setStore('http://www.semanticweb.org/eachusp/ontologies/2021/5/ep-wsemantica#/stores/rihappy/location')}
