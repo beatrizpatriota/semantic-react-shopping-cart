@@ -7,17 +7,22 @@ const ProductsContextProvider = ({ children }) => {
     useEffect(() => {
         var content = []
       const runAsync = async () => {
+          try{
         const stores = await fetch(`http://localhost:8080/store`, { method: 'GET' })
-        .then(response => response.json())
+        .then(response => { return response.json()})
     
         for(const store of stores) {
             await fetch(`http://localhost:8080/product?storeUri=${encodeURIComponent(store.uri)}`, { method: 'GET' })
             .then(response => response.json())
-            .then(res => res.forEach(data => { content.push({data, store}) }))
+            .then(res => res.forEach(data => content.push({data, store})))
+            setProducts(content)
           }
-          setProducts(content)
+        } catch(error) {
+            console.log(error)
+        }
+
       }
-      if(products.length === 0) runAsync()
+     runAsync()
     }, [products]);
 
     return (
