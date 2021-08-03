@@ -20,7 +20,7 @@ const CartRecommended = () => {
         <div className={styles.p__container}>
             <div className={styles.p__grid}>
 
-                {recommendedProds ? 
+                {(recommendedProds && recommendedProds.length > 0)? 
                 recommendedProds.map(product => (
                     <RecommendedProd key={product.label} product={product} />
                 )) : <p>Não há produtos recomendados ainda :(</p>
